@@ -35,14 +35,13 @@ If you have any questions, concerns, or feedback, please get in touch with us. W
 
 Stay up-to-date on all of our news, updates, and events:
 
-    Follow us on [social media platform]
-    Subscribe to our newsletter
-    Join our community on [community platform]
+- Follow us on [social media platform]
+- Subscribe to our newsletter [newsletter subscription form]
+- Join our community on [community platform]
 
 We look forward to seeing you on our platform!
-
 
 [STRETCH GOAL SECTION]
 - Filters and Special Effects power-ups
 - Comments on archive pages
-- 
+- Completed 'Voting System'
