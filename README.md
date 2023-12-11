@@ -5,7 +5,7 @@ Welcome to our collaborative drawing website! This platform is designed to bring
 
 ## Features
 
-* Weekly Voted Prompts: Each week, we'll provide a new library of words for the community to build their own prompt with. These prompts can then be voted on by the community, and the winning prompt becomes the guidelines for next weeks art session!
+* Weekly Voted Prompts: Each week, we'll provide a new library of words for the community to build their own prompt with. These prompts can then be voted on by the community, and the winning prompt becomes the guidelines for next weeks art session! [See Stretch Goal Section]
 
 * Power-Ups: We offer a variety of power-ups that can be used to unlock more creative tools! These include: The Bucket Tool, Copy-Pasting, Eraser, Glitter, Move Selection, Permanent Marker, and more. Use them wisely and creatively to enhance everyones drawings, or wreak havoc!
 
