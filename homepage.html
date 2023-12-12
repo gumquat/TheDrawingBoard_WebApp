@@ -14,14 +14,26 @@
     <!-- STYLES -->
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="homepage.html">Home</a></li>
-        <li><a href="archive.html">Archive</a></li>
-        <li><a href="prompt.html">Prompt</a></li>
-      </ul>
+  <!-- BODY SECTION BEGINS-->
+  <body class="d-flex col">
+
+  <div> <!-- COLUMN DIV START-->
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" 
+        width="30" height="30" class="d-inline-block align-top">
+        The Drawing Board
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
+          <li class="nav-item"><a class="nav-link" href="prompt.html">Prompt</a></li>
+        </ul>
+      </div>
     </nav>
+    <!-- BUTTONS -->
   <div class="buttons">
     <button onclick="changeBackground('assets/background1.gif')">Image 1</button>
     <button onclick="changeBackground('assets/background2.gif')">Image 2</button>
@@ -91,14 +103,18 @@
       </section>
     </div>
 
-    <section class="footer d-flex justify-content-center align-items-baseline p-4 pb-2">
+    <!-- FOOTER SECTION -->
+    <section class="footer d-flex justify-content-center align-items-stretch p-4 pb-2">
       <div>
         <p>meet the makers</p>
         <p>Evan Newman-Chock [github.com/gumquat]</p>
         <p>Caramon Hofstetter [github.com/CaramonH]</p>
       </div>
-    </section> 
-    
+    </section>
+  </div> <!-- COLUMN DIV END-->
+
+
+    <!-- SCRIPT BELOW-->
 <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
     <script>
         const Webamp = window.Webamp;
@@ -120,14 +136,14 @@
                 duration: 223
             }],
         }).renderWhenReady(document.getElementById('app'));
-        
+
         clippy.load('Clippy', function(agent) {
-            
+
             agent.show();
-            
+
             agent.speak('Rawr!');
         });
-    </script> 
+    </script>
 
 
 
