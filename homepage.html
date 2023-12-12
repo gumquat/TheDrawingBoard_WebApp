@@ -3,11 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>The Drawing Board</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="prompt.html">Prompt</a></li>
+      </ul>
+    </nav>
+  <div class="buttons">
+    <button onclick="changeBackground('assets/background.jpg')">Image 1</button>
+    <button onclick="changeBackground('assets/background2.jpg')">Image 2</button>
+    <button onclick="changeBackground('assets/clouds2.jpg')">Image 3</button>
+  </div>
+    <div id="app" style="min-height: 400px">
+      <!-- Webamp will attempt to center itself within this div -->
+    </div>
     <div class="container">
       <section class="tools-board">
         <div class="row">
@@ -69,5 +84,27 @@
       </section>
     </div>
     
+<script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+    <script>
+        const Webamp = window.Webamp;
+        new Webamp({
+            initialTracks: [{
+                metaData: {
+                    artist: "Britney Spears",
+                    title: "Gimme More"
+                },
+                url: "assets/GimmeMore.mp3",
+                duration: 223
+            }],
+        }).renderWhenReady(document.getElementById('app'));
+        
+        clippy.load('Clippy', function(agent) {
+            // Do anything with the loaded agent
+            agent.show();
+            
+            agent.speak('Welcome to Alex`s website!');
+        });
+    </script> 
+
   </body>
 </html>

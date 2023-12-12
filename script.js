@@ -128,3 +128,7 @@ saveImg.addEventListener("click", () => {
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
 canvas.addEventListener("mouseup", () => isDrawing = false);
+
+function changeBackground(imagePath) {
+    document.body.style.backgroundImage = `url('${imagePath}')`;
+}
