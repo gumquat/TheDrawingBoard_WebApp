@@ -16,9 +16,9 @@
       </ul>
     </nav>
   <div class="buttons">
-    <button onclick="changeBackground('assets/background.jpg')">Image 1</button>
-    <button onclick="changeBackground('assets/background2.jpg')">Image 2</button>
-    <button onclick="changeBackground('assets/clouds2.jpg')">Image 3</button>
+    <button onclick="changeBackground('assets/background1.gif')">Image 1</button>
+    <button onclick="changeBackground('assets/background2.gif')">Image 2</button>
+    <button onclick="changeBackground('assets/background.jpg')">Image 3</button>
   </div>
     <div id="app" style="min-height: 400px">
       <!-- Webamp will attempt to center itself within this div -->
@@ -101,13 +101,13 @@
                     artist: "Coldplay",
                     title: "Viva la Vida"
                 },
-                url: "assets/Viva La Vida.mp3", // Adjust the path to your actual MP3 file
-                duration: 223 // Replace with the actual duration of the track
+                url: "assets/Viva La Vida.mp3",
+                duration: 223
             }],
         }).renderWhenReady(document.getElementById('app'));
         
         clippy.load('Clippy', function(agent) {
-            // Do anything with the loaded agent
+            
             agent.show();
             
             agent.speak('Rawr!');
