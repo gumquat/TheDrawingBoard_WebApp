@@ -19,26 +19,34 @@
 
   <div> <!-- COLUMN DIV START-->
     <!-- NAV BAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        <img src="GUI Assets/Logo.png" 
-        width="30" height="30" class="d-inline-block align-top">
-        The Drawing Board
-      </a>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
-          <li class="nav-item"><a class="nav-link" href="prompt.html">Prompt</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- BUTTONS -->
-  <div class="buttons">
-    <button onclick="changeBackground('assets/background1.gif')">Image 1</button>
-    <button onclick="changeBackground('assets/background2.gif')">Image 2</button>
-    <button onclick="changeBackground('assets/background3.gif')">Image 3</button>
-  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="GUI Assets/Logo.png" 
+      width="30" height="30" class="d-inline-block align-top">
+      The Drawing Board
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
+        <li class="nav-item"><a class="nav-link" href="prompt.html">Prompt</a></li>
+      </ul>
+
+    <!-- Adding the "Vibes" dropdown -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="vibesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Vibes
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="vibesDropdown">
+            <li><a onclick="changeBackground('assets/background2.gif')" class="dropdown-item" href="#">Clouds</a></li>
+            <li><a onclick="changeBackground('assets/clouds2.jpg')" class="dropdown-item" href="#">Static Clouds</a></li>
+            <li><a class="dropdown-item" href="#">Whatever the fuq</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
     <div id="app" style="min-height: 400px">
       <!-- Webamp will attempt to center itself within this div -->
     </div>
@@ -106,7 +114,7 @@
     <!-- FOOTER SECTION -->
     <section class="footer d-flex justify-content-center align-items-stretch p-4 pb-2">
       <div>
-        <p>meet the makers</p>
+        <p>meet the creators</p>
         <p>Evan Newman-Chock [github.com/gumquat]</p>
         <p>Caramon Hofstetter [github.com/CaramonH]</p>
       </div>

@@ -22,7 +22,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: url('assets/background1.gif') center/cover no-repeat;
+  background: url('assets/background2.gif') center/cover no-repeat;
 }
 .container{
   display: flex;
