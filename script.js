@@ -161,3 +161,9 @@ toolButtons.forEach(toolButton => {
     });
 });
 
+// Trigger click event on the brush tool after setting up the event listeners
+const brushTool = document.getElementById('brush');
+brushTool.click();
+
+// Add the 'rainbow' class to the brush tool
+brushTool.classList.add('rainbow');
