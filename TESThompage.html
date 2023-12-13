@@ -21,12 +21,12 @@
     <div class="col">
       <div class="row">
         <!-- an easy call for the header content -->
-        <div id="includeHeader"></div>
+          <div class="borders" id="includeNavbar"></div>
             <!-- Webamp will attempt to center itself within this div -->
           </div>
           <!-- <div id="includeCanvas"></div> TESTING A CALL FOR THE CANVAS SECTION-->
           <div class="container"> <!-- THE CANVAS SECTION -->
-            <section class="tools-board">
+            <section class="tools-board borders">
               <div class="row">
                 <label class="title">Shapes</label>
                 <ul class="options">
@@ -82,13 +82,13 @@
               </div>
             </section>
             <!--call for the drawing board-->
-            <section class="drawing-board">
+            <section class="drawing-board borders">
               <canvas></canvas>
             </section>
           </div>
             <!-- FOOTER SECTION -->
             <!--call for the footer content-->
-          <div id="includFooter"></div>
+          <div class="borders" id="includFooter"></div>
       </div>
 
       <!-- call for the WinAMP -->
@@ -127,15 +127,15 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
     <script> 
     $(function(){
-      $("#includFooter").load("HTML_Elements/footer.html"); 
+      $("#includFooter").load("HTML_Elements/footer.html");
     });
     </script>
 
-    <!--an easy call for the header content-->
+    <!--an easy call for the navbar content-->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
     <script> 
     $(function(){
-      $("#includeHeader").load("HTML_Elements/header.html"); 
+      $("#includeNavbar").load("HTML_Elements/navbar.html"); 
     });
     </script>
 

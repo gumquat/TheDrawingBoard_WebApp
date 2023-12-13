@@ -16,6 +16,20 @@
   font-style: normal;
 }
 
+/* STYLING FOR RETRO PC
+.borders {
+
+  background: #llightgrey;
+  position: relative;
+  margin: 20px;
+  box-shadow: 
+    0 0 0 10px hsl(0, 0%, 50%),
+    0 0 0 15px hsl(0, 0%, 60%),
+    0 0 0 20px hsl(0, 0%, 70%),
+    0 0 0 25px hsl(0, 0%, 80%),
+    0 0 0 30px hsl(0, 0%, 90%); 
+}*/
+
 body {
   font-family: 'popMagic', sans-serif;
   display: flex;
@@ -25,6 +39,10 @@ body {
   background: url('assets/background2.gif') center/cover no-repeat;
 }
 .container{
+    /* styling for retro */
+    background-color: lightgrey;
+    border: 5px solid darkgrey; 
+    outline: solid grey;
   display: flex;
   width: 100%;
   gap: 10px;
