@@ -7,6 +7,8 @@ colorPicker = document.querySelector("#color-picker"),
 clearCanvas = document.querySelector(".clear-canvas"),
 saveImg = document.querySelector(".save-img"),
 ctx = canvas.getContext("2d");
+toolButtons = document.querySelectorAll('.option.tool');
+
 
 // global variables with default value
 let prevMouseX, prevMouseY, snapshot,
@@ -132,3 +134,26 @@ canvas.addEventListener("mouseup", () => isDrawing = false);
 function changeBackground(imagePath) {
     document.body.style.backgroundImage = `url('${imagePath}')`;
 }
+
+toolButtons.forEach(toolButton => {
+    toolButton.addEventListener('mousedown', (event) => {
+        event.preventDefault();
+
+        const toolId = toolButton.id;
+
+        // Remove 'rainbow' class from all tool buttons
+        toolButtons.forEach(button => {
+            if (button !== toolButton) {
+                button.classList.remove('rainbow');
+            }
+        });
+
+        toolButton.classList.toggle('active');
+
+        if ((toolId === 'brush' || toolId === 'eraser') && toolButton.classList.contains('active')) {
+            toolButton.classList.add('rainbow');
+        } else {
+            toolButton.classList.remove('rainbow');
+        }
+    });
+});

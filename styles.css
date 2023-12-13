@@ -70,8 +70,17 @@ section{
   align-items: center;
   margin-bottom: 10px;
 }
-.option:is(:hover, .active) img{
-  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+.option.active.rainbow img {
+  animation: rainbowEffect 1s linear infinite;
+}
+
+@keyframes rainbowEffect {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }
 .option :where(span, label){
   color: #5A6168;
