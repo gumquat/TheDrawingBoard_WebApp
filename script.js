@@ -143,12 +143,15 @@ toolButtons.forEach(toolButton => {
 
         // Remove 'rainbow' class from all tool buttons
         toolButtons.forEach(button => {
-            if (button !== toolButton) {
-                button.classList.remove('rainbow');
-            }
+            button.classList.remove('rainbow');
         });
 
-        toolButton.classList.toggle('active');
+        // Remove 'active' class from all tool buttons
+        toolButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        toolButton.classList.add('active');
 
         if ((toolId === 'brush' || toolId === 'eraser') && toolButton.classList.contains('active')) {
             toolButton.classList.add('rainbow');
@@ -157,3 +160,4 @@ toolButtons.forEach(toolButton => {
         }
     });
 });
+
