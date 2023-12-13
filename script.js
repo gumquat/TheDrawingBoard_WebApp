@@ -88,6 +88,10 @@ const drawing = (e) => {
     }
 }
 
+canvas.addEventListener("mouseleave", () => {
+    isDrawing = false;
+});
+
 toolBtns.forEach(btn => {
     btn.addEventListener("click", () => { // adding click event to all tool option
         // removing active class from the previous option and adding on current clicked option
@@ -167,3 +171,4 @@ brushTool.click();
 
 // Add the 'rainbow' class to the brush tool
 brushTool.classList.add('rainbow');
+

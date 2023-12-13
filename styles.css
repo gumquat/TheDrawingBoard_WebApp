@@ -30,6 +30,7 @@
 }*/
 
 body {
+  cursor: url('assets/arrow.cur'), auto;
   font-family: 'popMagic', sans-serif;
   display: flex;
   align-items: center;
@@ -180,5 +181,29 @@ section{
 .drawing-board canvas{
   width: 100%;
   height: 100%;
+}
+
+.glitter-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.glitter-particle {
+  position: absolute;
+  border-radius: 50%;
+}
+
+@keyframes glitter-fall {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
 }
 
