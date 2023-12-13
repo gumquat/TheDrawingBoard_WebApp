@@ -22,7 +22,6 @@
       <div class="row">
         <!-- an easy call for the header content -->
         <div id="includeHeader"></div>
-          <!-- <div id="app" style="min-height: 400px"> -->
             <!-- Webamp will attempt to center itself within this div -->
           </div>
           <div class="container"> <!-- THE INTERACTIVE DRAWING SECTION -->
@@ -81,6 +80,7 @@
                 <button class="save-img">Save As Image</button>
               </div>
             </section>
+            <!--call for the drawing board-->
             <section class="drawing-board">
               <canvas></canvas>
             </section>
@@ -89,12 +89,12 @@
             <!--call for the footer content-->
           <div id="includFooter"></div>
       </div>
-      
-    <!-- NAV BAR -->
+
+      <!-- call for the WinAMP -->
+      <div id="app" style="min-height: 400px">
 
     <!-- SCRIPTS SECTION BELOW-->
-
-<!-- <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+<script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
   <script class="music-player"> //make this load seperately and in a new location
     const Webamp = window.Webamp;
     new Webamp({
@@ -120,7 +120,7 @@
         agent.show();
         agent.speak('Rawr!');
     });
-    </script> -->
+    </script>
 
     <!--an easy call for the footer content-->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
