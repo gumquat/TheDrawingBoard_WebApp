@@ -20,9 +20,9 @@
 
 
 <!-- BEGIN NAVBAR -->
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
-    <img src="GUI Assets/Logo.png" 
+    <img src="GUI Assets/Logo.png"
     width="30" height="30" class="d-inline-block align-top">
     The Drawing Board
   </a>
@@ -31,6 +31,20 @@
       <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
       <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
       <li class="nav-item"><a class="nav-link" href="prompt.html">Prompt</a></li>
+    </ul>
+
+  <!-- Adding the Vibes dropdown -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="vibesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Vibes
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="vibesDropdown">
+          <li><a onclick="changeBackground('assets/background2.gif')" class="dropdown-item" href="#">Clouds</a></li>
+          <li><a onclick="changeBackground('assets/pinkripples.gif')" class="dropdown-item" href="#">Bubblegum</a></li>
+          <li><a onclick="changeBackground('assets/space.gif')"class="dropdown-item" href="#">Space</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </nav>
