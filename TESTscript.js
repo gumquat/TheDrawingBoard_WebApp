@@ -203,3 +203,29 @@ brushTool.click();
 
 // Add the 'rainbow' class to the brush tool
 brushTool.classList.add('rainbow');
+
+
+//PROMPT GENERATION CODE
+
+$(document).ready(function(){
+    if (window.location.pathname === "/homepage.html") {
+        generatePrompt();
+    }
+});
+
+function generatePrompt(){
+    let word1 = "";
+    let word2 = "";
+    $.ajax({
+        method: 'GET',
+        url: 'https://api.dictionaryapi.dev/api/v2/entries/en/' + word1,
+        headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+        contentType: 'application/json',
+        success: function(result) {
+            console.log(result);
+        },
+        error: function ajaxError(jqXHR) {
+            console.error('Error: ', jqXHR.responseText);
+        }
+    });
+}
