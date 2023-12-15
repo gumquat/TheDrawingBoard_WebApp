@@ -205,21 +205,20 @@ brushTool.click();
 brushTool.classList.add('rainbow');
 
 
-//PROMPT GENERATION CODE
+//PROMPT GENERATION ON LOAD
 
 $(document).ready(function(){
     if (window.location.pathname === "/homepage.html") {
-        generatePrompt();
+        generatePromptNUMBER();
     }
 });
 
-function generatePrompt(){
-    let word1 = "";
-    let word2 = "";
+//AJAX VERSION
+function generatePrompt1(){
+    let number = Math.floor(Math.random() * 3) + 1;
     $.ajax({
         method: 'GET',
-        url: 'https://api.dictionaryapi.dev/api/v2/entries/en/' + word1,
-        headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+        url: 'https://random-word-api.herokuapp.com/word?number=' + number,
         contentType: 'application/json',
         success: function(result) {
             console.log(result);
@@ -229,3 +228,13 @@ function generatePrompt(){
         }
     });
 }
+
+//FETCH VERSION
+function generatePrompt2(){
+    let number = Math.floor(Math.random() * 3) + 1;
+    fetch('https://random-word-api.herokuapp.com/word?number=' + number)
+    .then(response => response.json())
+    .then(data => console.log(data[0]))
+    .catch(error => console.error('Error:', error));
+}
+
