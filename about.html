@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>About</title>
+  <link rel="icon" type="image/png" href="GUI Assets/Logo2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- BOOTSTRAP INCLUDES -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- STYLES -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- SCRIPT -->
+  <script src="TESTscript.js" defer></script>
+</head>
+
+<!-- BODY SECTION BEGINS -->
+
+<body>
+  <div class="container">
+    <div class="col">
+      <div class="row">
+        <!-- An easy call for the header content -->
+        <div class="borders" id="includeNavbar"></div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section borders">
+        <h2>About The Drawing Board</h2>
+        <p>
+          Welcome to The Drawing Board, a creative space where digital art meets innovation. Our platform provides a
+          canvas for users of all skill levels to express themselves through digital drawing.
+        </p>
+        <p>
+          Whether you're an experienced artist or just discovering your artistic talents, our intuitive tools and
+          features make the process enjoyable and accessible. Join us on this journey of creativity and self-expression.
+        </p>
+        <!-- Add more details about your page as needed -->
+      </section>
+
+
+
+      <!-- Footer Section -->
+      <div class="borders" id="includFooter"></div>
+    </div>
+  </div>
+
+  <!-- Scripts Section Below -->
+  <!-- An easy call for the footer content -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(function () {
+      $("#includFooter").load("HTML_Elements/footer.html");
+    });
+  </script>
+
+  <!-- An easy call for the navbar content -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(function () {
+      $("#includeNavbar").load("HTML_Elements/navbar.html");
+    });
+  </script>
+      <!-- The Winamp section -->
+      <div id="app" style="min-height: 400px"></div>
+
+</body>
+  <!-- Winamp and Clippy script -->
+  <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+  <script class="music-player">
+    const Webamp = window.Webamp;
+    new Webamp({
+      initialTracks: [{
+        metaData: {
+          artist: "Britney Spears",
+          title: "Gimme More"
+        },
+        url: "assets/GimmeMore.mp3",
+        duration: 223
+      },
+      {
+        metaData: {
+          artist: "Coldplay",
+          title: "Viva la Vida"
+        },
+        url: "assets/Viva La Vida.mp3",
+        duration: 223
+      }],
+    }).renderWhenReady(document.getElementById('app'));
+
+    clippy.load('Clippy', function (agent) {
+      agent.show();
+      agent.speak('Rawr!');
+    });
+  </script>
+</html>

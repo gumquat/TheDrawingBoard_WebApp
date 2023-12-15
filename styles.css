@@ -40,19 +40,23 @@ body {
   background: url('assets/background2.gif') center/cover no-repeat;
 }
 .container{
-    /* styling for retro */
-    background-color: lightgrey;
-    border: 5px solid darkgrey; 
-    outline: solid grey;
+  /* styling for retro */
+  background-color: lightgrey;
+  border: 5px solid darkgrey; 
+  outline: solid grey;
   display: flex;
   width: 100%;
   gap: 10px;
   padding: 10px;
   max-width: 1050px;
+  flex-wrap: wrap;
 }
 section{
   background: #fff;
   border-radius: 7px;
+}
+.navbar {
+  flex: 1;
 }
 .tools-board{
   width: 200px;
@@ -182,17 +186,35 @@ section{
   height: 100%;
 }
 
-.glitter-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 1000;
+.footer {
+  background-color: #c0c0c0; /* Windows 98 teal background color */
+  color: #000; /* White text color */
+  text-align: center;
+  font-size: 16px; /* Adjust the font size as needed */
 }
 
-.glitter-particle {
-  position: absolute;
-  border-radius: 50%;
+.footer p {
+  margin: 5px;
+}
+
+.footer a {
+  color: #c0c0c0; /* Light gray for links */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer div {
+  max-width: 600px; /* Adjust the max-width to match your container size */
+}
+
+/* Optional: Add a border to mimic the Windows 98 window border */
+.footer {
+  border: 2px solid #888888;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 @keyframes glitter-fall {

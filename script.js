@@ -108,13 +108,13 @@ colorBtns.forEach(btn => {
         // removing selected class from the previous option and adding on current clicked option
         document.querySelector(".options .selected").classList.remove("selected");
         btn.classList.add("selected");
-        // passing selected btn background color as selectedColor value
+        // passing selected button background color as selectedColor value
         selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
     });
 });
 
 colorPicker.addEventListener("change", () => {
-    // passing picked color value from color picker to last color btn background
+    // passing picked color value from color picker to last color button background
     colorPicker.parentElement.style.background = colorPicker.value;
     colorPicker.parentElement.click();
 });
