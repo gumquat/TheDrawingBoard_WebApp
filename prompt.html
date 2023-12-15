@@ -1,91 +1,142 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Prompt</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SCRIPT -->
-    <script src="script.js" defer></script>
-    <!--BOOTSTRAP INCLUDES-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
-    ></script>
-    <!-- STYLES -->
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <!-- BODY SECTION BEGINS-->
-  <body class="d-flex col">
-
-  <div> <!-- COLUMN DIV START-->
-    <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="GUI Assets/Logo.png" 
-      width="30" height="30" class="d-inline-block align-top">
-      The Drawing Board
-    </a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
-        <li class="nav-item"><a class="nav-link" href="prompt.html">Prompt</a></li>
-      </ul>
-
-    <!-- Adding the "Vibes" dropdown -->
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="vibesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Vibes
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="vibesDropdown">
-            <li><a onclick="changeBackground('assets/background2.gif')" class="dropdown-item" href="#">Clouds</a></li>
-            <li><a onclick="changeBackground('assets/pinkripples.gif')" class="dropdown-item" href="#">Bubblegum</a></li>
-            <li><a onclick="changeBackground('assets/space.gif')" class="dropdown-item" href="#">Space</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-    <div id="app" style="min-height: 400px">
-      <!-- Webamp will attempt to center itself within this div -->
-    </div>
-
-      <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
-      <script>
-        const Webamp = window.Webamp;
-        new Webamp({
-          initialTracks: [
-            {
-              metaData: {
-                artist: "Britney Spears",
-                title: "Gimme More"
-              },
-              url: "assets/GimmeMore.mp3",
-              duration: 223
-            },
-            {
-              metaData: {
-                artist: "Coldplay",
-                title: "Viva la Vida"
-              },
-              url: "assets/Viva La Vida.mp3",
-              duration: 223
-            }
-          ],
-        }).renderWhenReady(document.getElementById('app'));
-      </script>
-
-      <!-- FOOTER SECTION -->
-    <section class="footer d-flex justify-content-center align-items-stretch p-4 pb-2">
-      <div>
-        <p>Meet the Creators</p>
-        <p>Evan Newman-Chock [github.com/gumquat]</p>
-        <p>Caramon Hofstetter [github.com/CaramonH]</p>
+<head>
+  <meta charset="utf-8">
+  <title>Prompt</title>
+  <link rel="icon" type="image/png" href="GUI Assets/Logo2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- BOOTSTRAP INCLUDES -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- STYLES -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- SCRIPT -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="TESTscript.js" defer></script>
+</head>
+<!-- BODY SECTION BEGINS -->
+<body>
+  <div class="container">
+    <div class="col">
+      <div class="row">
+        <!-- An easy call for the header content -->
+        <div class="borders" id="includeNavbar"></div>
       </div>
-    </section>
-  </div> <!-- COLUMN DIV END-->
-    
+      <!-- The Prompt Builder Section -->
+      <div id="prompt-builder">
+        <h2>Current Prompt</h2>
+        <p id="current-prompt">This is a sample prompt.</p>
+        <button id="adjective-btn">Generate Adjective</button>
+        <button id="noun-btn">Generate Noun</button>
+        <button id="submit-prompt-btn">Submit Prompt</button>
+        <div id="adjective-list"></div>
+        <div id="generated-words"></div>
+      </div>
+      <!-- The Winamp section -->
+      <div id="app" style="min-height: 400px"></div>
+      <!-- Footer Section -->
+      <div class="borders" id="includFooter"></div>
+    </div>
+  </div>
+  <!-- Scripts Section Below -->
+  <!-- An easy call for the footer content -->
+  <script>
+    $(function(){
+      $("#includFooter").load("HTML_Elements/footer.html");
+    });
+  </script>
+  <!-- An easy call for the navbar content -->
+  <script>
+    $(function(){
+      $("#includeNavbar").load("HTML_Elements/navbar.html");
+    });
+  </script>
+  <!-- Winamp and Clippy script -->
+  <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+  <script class="music-player">
+    const Webamp = window.Webamp;
+    new Webamp({
+      initialTracks: [{
+        metaData: {
+          artist: "Britney Spears",
+          title: "Gimme More"
+        },
+        url: "assets/GimmeMore.mp3",
+        duration: 223
+      },
+      {
+        metaData: {
+          artist: "Coldplay",
+          title: "Viva la Vida"
+        },
+        url: "assets/Viva La Vida.mp3",
+        duration: 223
+      }],
+    }).renderWhenReady(document.getElementById('app'));
+
+    clippy.load('Clippy', function(agent) {
+      agent.show();
+      agent.speak('Rawr!');
+    });
+  </script>
+  <!-- Prompt Builder script -->
+  <script>
+    const adjectiveApiUrl = 'https://api.datamuse.com/words?rel_jjb=';
+    const nounApiUrl = 'https://api.wordnik.com/v4/words.json/randomWords';
+
+    async function fetchData(apiUrl) {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    function updatePrompt(adjective, noun) {
+      const promptElement = document.getElementById('current-prompt');
+      promptElement.textContent = `Create something ${adjective} with a ${noun}.`;
+    }
+
+  $('#adjective-btn').on('click', async () => {
+    const adjectives = await fetchData(adjectiveApiUrl);
+    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    updatePrompt(randomAdjective, $('#current-prompt').text().split(' ').pop());
+    appendGeneratedWords(randomAdjective);
+  });
+
+  $('#noun-btn').on('click', async () => {
+    const nouns = await fetchData(`${nounApiUrl}?rel_jjb=`);
+    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)].word;
+    updatePrompt($('#current-prompt').text().split(' ').shift(), randomNoun);
+    appendGeneratedWords(randomNoun);
+  });
+
+    $('#submit-prompt-btn').on('click', () => {
+      // Implement logic to submit the prompt for voting
+    });
+
+    async function fetchAdjectives() {
+      try {
+        const response = await fetch('https://api.datamuse.com/words?rel_jjb=');
+        const data = await response.json();
+        return data.map(wordObject => wordObject.word);
+      } catch (error) {
+        console.error('Error fetching adjectives:', error);
+        return [];
+      }
+    }
+
+    // Function to update UI with fetched adjectives
+    async function updateAdjectives() {
+      const adjectives = await fetchAdjectives();
+      // Assuming you have a div with the id "adjectives" to display adjectives
+      $('#adjectives').text(adjectives.join(', '));
+    }
+
+    // Example usage
+    updateAdjectives();
+  </script>
 </body>
 </html>

@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>The Drawing Board</title>
+    <link rel="icon" type="image/png" href="GUI Assets/Logo2.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SCRIPT -->
-    <script src="script.js" defer></script>
     <!--BOOTSTRAP INCLUDES-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -13,145 +12,139 @@
     ></script>
     <!-- STYLES -->
     <link rel="stylesheet" href="styles.css">
+    <!-- SCRIPT -->
+    <script src="TESTscript.js" defer></script>
   </head>
   <!-- BODY SECTION BEGINS-->
   <body>
 
-  <div> <!-- COLUMN DIV START-->
-    <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="GUI Assets/Logo.png" 
-      width="30" height="30" class="d-inline-block align-top">
-      The Drawing Board
-    </a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
-        <li class="nav-item"><a class="nav-link" href="prompt.html">Prompt</a></li>
-      </ul>
+  
 
-    <!-- Adding the Vibes dropdown -->
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="vibesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Vibes
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="vibesDropdown">
-            <li><a onclick="changeBackground('assets/background2.gif')" class="dropdown-item" href="#">Clouds</a></li>
-            <li><a onclick="changeBackground('assets/pinkripples.gif')" class="dropdown-item" href="#">Bubblegum</a></li>
-            <li><a onclick="changeBackground('assets/space.gif')"class="dropdown-item" href="#">Space</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nav>
-    <div id="app" style="min-height: 400px">
-      <!-- Webamp will attempt to center itself within this div -->
-    </div>
-    <div class="container">
-      <section class="tools-board">
-        <div class="row">
-          <label class="title">Shapes</label>
-          <ul class="options">
-            <li class="option tool" id="rectangle">
-              <img src="icons/rectangle.svg" alt="">
-              <span>Rectangle</span>
-            </li>
-            <li class="option tool" id="circle">
-              <img src="icons/circle.svg" alt="">
-              <span>Circle</span>
-            </li>
-            <li class="option tool" id="triangle">
-              <img src="icons/triangle.svg" alt="">
-              <span>Triangle</span>
-            </li>
-            <li class="option">
-              <input type="checkbox" id="fill-color">
-              <label for="fill-color">Fill color</label>
-            </li>
-          </ul>
-        </div>
-        <div class="row">
-          <label class="title">Options</label>
-          <ul class="options">
-            <li class="option active tool" id="brush">
-              <img src="GUI Assets/Brush_icon.png" alt="">
-              <span>Brush</span>
-            </li>
-            <li class="option tool" id="eraser">
-              <img src="GUI Assets/Eraser_icon.png">
-              <span>Eraser</span>
-            </li>
-            <li class="option">
-              <input type="range" id="size-slider" min="1" max="30" value="5">
-            </li>
-          </ul>
-        </div>
-        <div class="row colors">
-          <label class="title">Colors</label>
-          <ul class="options">
-            <li class="option"></li>
-            <li class="option selected"></li>
-            <li class="option"></li>
-            <li class="option"></li>
-            <li class="option">
-              <input type="color" id="color-picker" value="#4A98F7">
-            </li>
-          </ul>
-        </div>
-        <div class="row buttons">
-          <button class="clear-canvas">Clear Canvas</button>
-          <button class="save-img">Save As Image</button>
-        </div>
-      </section>
-      <section class="drawing-board">
-        <canvas></canvas>
-      </section>
-    </div>
-
-    <!-- FOOTER SECTION -->
-    <section class="footer d-flex justify-content-center align-items-stretch p-4 pb-2">
-      <div>
-        <p>Meet the Creators</p>
-        <p>Evan Newman-Chock [github.com/gumquat]</p>
-        <p>Caramon Hofstetter [github.com/CaramonH]</p>
+  <div class="container">
+    <div class="col">
+      <div class="row">
+        <!-- an easy call for the header content -->
+          <div class="borders" id="includeNavbar"></div>
+            <!-- Webamp will attempt to center itself within this div -->
+          </div>
+          <!-- <div id="includeCanvas"></div> TESTING A CALL FOR THE CANVAS SECTION-->
+          <div class="container"> <!-- THE CANVAS SECTION -->
+            <section class="tools-board borders">
+              <div class="row">
+                <ul class="options">
+                  <li class="option tool" id="rectangle">
+                    <img src="icons/rectangle.svg" alt="">
+                  </li>
+                  <li class="option tool" id="circle">
+                    <img src="icons/circle.svg" alt="">
+                  </li>
+                  <li class="option tool" id="triangle">
+                    <img src="icons/triangle.svg" alt="">
+                  </li>
+                  <li class="option">
+                    <input type="checkbox" id="fill-color">
+                  </li>
+                </ul>
+              </div>
+              <div class="row">
+                <ul class="options">
+                  <!-- <li class="option active tool" id="bucket">
+                    <img src="GUI Assets/Bucket_icon.png" alt="">
+                  </li> -->
+                  <li class="option active tool" id="brush">
+                    <img src="GUI Assets/Brush_icon.png" alt="">
+                  </li>
+                  <li class="option tool" id="eraser">
+                    <img src="GUI Assets/Eraser_icon.png">
+                  </li>
+                  <li class="option">
+                    <input type="range" id="size-slider" min="1" max="30" value="5">
+                  </li>
+                </ul>
+              </div>
+              <div class="row colors">
+                <label class="title">Colors</label>
+                <ul class="options">
+                  <li class="option"></li>
+                  <li class="option selected"></li>
+                  <li class="option"></li>
+                  <li class="option"></li>
+                  <li class="option">
+                    <input type="color" id="color-picker" value="#4A98F7">
+                  </li>
+                </ul>
+              </div>
+              <div class="row buttons">
+                <button class="clear-canvas">Clear</button>
+                <button class="save-img">Save</button>
+              </div>
+            </section>
+            <!--call for the drawing board-->
+            <section class="drawing-board borders">
+              <canvas></canvas>
+            </section>
+          </div>
+            <!-- FOOTER SECTION -->
+            <!--call for the footer content-->
+          <div class="borders" id="includFooter"></div>
       </div>
-    </section>
-  </div> <!-- COLUMN DIV END-->
 
+      <!-- call for the WinAMP -->
+      <div id="app" style="min-height: 400px">
+  </body>
 
-    <!-- LAST LOADED SCRIPT BELOW-->
-<script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
-    <script>
-        const Webamp = window.Webamp;
-        new Webamp({
-            initialTracks: [{
-                metaData: {
-                    artist: "Britney Spears",
-                    title: "Gimme More"
-                },
-                url: "assets/GimmeMore.mp3",
-                duration: 223
-            },
-            {
-                metaData: {
-                    artist: "Coldplay",
-                    title: "Viva la Vida"
-                },
-                url: "assets/Viva La Vida.mp3",
-                duration: 223
-            }],
-        }).renderWhenReady(document.getElementById('app'));
-
-        clippy.load('Clippy', function(agent) {
-
-            agent.show();
-
-            agent.speak('Rawr!');
-        });
+      <!-- SCRIPTS SECTION BELOW-->
+    <!--an easy call for the footer content-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
+    <script> 
+    $(function(){
+      $("#includFooter").load("HTML_Elements/footer.html");
+    });
     </script>
 
-  </body>
+    <!--an easy call for the navbar content-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
+    <script> 
+    $(function(){
+      $("#includeNavbar").load("HTML_Elements/navbar.html"); 
+    });
+    </script>
+
+    <!--an easy call for the canvas content TESTING not working rn-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
+    <script> 
+    $(function(){
+      $("#includeCanvas").load("HTML_Elements/canvas.html");
+    });
+    </script>
+
+<script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+
+  <script class="music-player"> //make this load seperately and in a new location
+    const Webamp = window.Webamp;
+    new Webamp({
+      initialTracks: [{
+      metaData: {
+        artist: "Britney Spears",
+        title: "Gimme More"
+      },
+        url: "assets/GimmeMore.mp3",
+        duration: 223
+      },
+      {
+      metaData: {
+        artist: "Coldplay",
+        title: "Viva la Vida"
+      },
+        url: "assets/Viva La Vida.mp3",
+        duration: 223
+      }],
+    }).renderWhenReady(document.getElementById('app'));
+
+    clippy.load('Clippy', function(agent) {
+        agent.show();
+        agent.speak('Rawr!');
+    });
+  </script>
+
 </html>
