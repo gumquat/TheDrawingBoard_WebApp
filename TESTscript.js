@@ -6,6 +6,7 @@ colorBtns = document.querySelectorAll(".colors .option"),
 colorPicker = document.querySelector("#color-picker"),
 clearCanvas = document.querySelector(".clear-canvas"),
 saveImg = document.querySelector(".save-img"),
+generatePrompt = document.querySelector(".generate-prompt")
 ctx = canvas.getContext("2d");
 toolButtons = document.querySelectorAll('.option.tool');
 
@@ -129,6 +130,11 @@ saveImg.addEventListener("click", () => {
     link.click(); // clicking link to download image
 });
 
+//generate random word inside a pop-up
+generatePrompt.addEventListener("click", () => {
+    generatePromptFetch();
+});
+
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
 canvas.addEventListener("mouseup", () => isDrawing = false);
@@ -162,6 +168,50 @@ toolButtons.forEach(toolButton => {
         }
     });
 });
+
+// Trigger click event on the brush tool after setting up the event listeners
+const brushTool = document.getElementById('brush');
+brushTool.click();
+
+// Add the 'rainbow' class to the brush tool
+brushTool.classList.add('rainbow');
+
+
+//PROMPT GENERATION ON LOAD
+$(document).ready(function(){
+    if (window.location.pathname === "/index.html") {
+        //NAME OF FUNCTION HERE();
+    }
+});
+
+//FETCH VERSION
+function generatePromptFetch(){
+    fetch('https://random-word-api.herokuapp.com/word?number=10')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data[0] + ' ' + data[1]); 
+        let dataDisplay = data[0] + ' ' + data[1];
+        alert(dataDisplay); // display the data in a pop-up
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+//AJAX VERSION
+function generatePromptAjax(){
+    let number = Math.floor(Math.random() * 3) + 1;
+    $.ajax({
+        method: 'GET',
+        url: 'https://random-word-api.herokuapp.com/word?number=' + number,
+        contentType: 'application/json',
+        success: function(result) {
+            console.log(result);
+        },
+        error: function ajaxError(jqXHR) {
+            console.error('Error: ', jqXHR.responseText);
+        }
+    });
+}
+
 
 //UNDER CONSTRUCTION (BUCKET TOOL)
 // function bucket () {
@@ -201,47 +251,3 @@ toolButtons.forEach(toolButton => {
 //         }
 //     }
 // }
-
-// Trigger click event on the brush tool after setting up the event listeners
-const brushTool = document.getElementById('brush');
-brushTool.click();
-
-// Add the 'rainbow' class to the brush tool
-brushTool.classList.add('rainbow');
-
-
-
-
-
-//PROMPT GENERATION ON LOAD
-$(document).ready(function(){
-    if (window.location.pathname === "/homepage.html") {
-        generatePromptNUMBER();
-    }
-});
-
-//AJAX VERSION
-function generatePrompt1(){
-    let number = Math.floor(Math.random() * 3) + 1;
-    $.ajax({
-        method: 'GET',
-        url: 'https://random-word-api.herokuapp.com/word?number=' + number,
-        contentType: 'application/json',
-        success: function(result) {
-            console.log(result);
-        },
-        error: function ajaxError(jqXHR) {
-            console.error('Error: ', jqXHR.responseText);
-        }
-    });
-}
-
-//FETCH VERSION
-function generatePrompt2(){
-    let number = Math.floor(Math.random() * 3) + 1;
-    fetch('https://random-word-api.herokuapp.com/word?number=' + number)
-    .then(response => response.json())
-    .then(data => console.log(data[0]))
-    .catch(error => console.error('Error:', error));
-}
-
