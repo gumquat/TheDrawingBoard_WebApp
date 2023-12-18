@@ -31,6 +31,7 @@ window.addEventListener("load", () => {
     setCanvasBackground();
 });
 
+//SHAPE TOOLS
 const drawRect = (e) => {
     // if fillColor isn't checked draw a rect with border else draw rect with background
     if(!fillColor.checked) {
@@ -86,6 +87,7 @@ const drawing = (e) => {
     } else {
         drawTriangle(e);
     }
+    // put bucket tool here
 }
 
 toolBtns.forEach(btn => {
@@ -100,7 +102,7 @@ toolBtns.forEach(btn => {
 sizeSlider.addEventListener("change", () => brushWidth = sizeSlider.value); // passing slider value as brushSize
 
 colorBtns.forEach(btn => {
-    btn.addEventListener("click", () => { // adding click event to all color button
+    btn.addEventListener("click", () => { // adding click event to all the color buttons
         // removing selected class from the previous option and adding on current clicked option
         document.querySelector(".options .selected").classList.remove("selected");
         btn.classList.add("selected");
@@ -151,51 +153,54 @@ toolButtons.forEach(toolButton => {
             button.classList.remove('active');
         });
 
+        //RAINBOW EFFECT IMPLEMENTATION
         toolButton.classList.add('active');
-
         if ((toolId === 'brush' || toolId === 'eraser') && toolButton.classList.contains('active')) {
             toolButton.classList.add('rainbow');
         } else {
             toolButton.classList.remove('rainbow');
         }
-    //UNDER CONSTRUCTION (BUCKET TOOL)
-    //let stack = [];
-    //let oldColor;
-    //   if (selectedTool === "bucket") {
-    //    oldColor = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data; // get the color of the pixel where the mouse was clicked
-    //    stack.push({ x: e.offsetX, y: e.offsetY }); //push the coordinates of the clicked pixel to the stack
-    //     while (stack.length) { //while loop to keep filling until the stack is empty
-    //         let p = stack.pop();
-    //         let x1 = p.x, y = p.y;
-    //        //use a while loop to keep filling until the stack is empty
-    //        //check the pixels to the left and right and if they have the same color as the old color
-    //        //if they are the same color as the old color, change them to the selected color
-    //        //check the pixels above and below the current pixel and add them to the stack
-
-    //         while (x1 > 0 && JSON.stringify(ctx.getImageData(x1 - 1, y, 1, 1).data) === JSON.stringify(oldColor)) 
-    //             x1--;
-  
-    //         let spanAbove = false, spanBelow = false;
-  
-    //         for (let x2 = x1 + 1; x2 < canvas.width && JSON.stringify(ctx.getImageData(x2, y, 1, 1).data) === JSON.stringify(oldColor); ++x2) {
-    //             ctx.fillStyle = selectedColor;
-    //             ctx.fillRect(x2, y, 1, 1);
-  
-    //             if (y > 0 && spanAbove !== JSON.stringify(ctx.getImageData(x2, y - 1, 1, 1).data) === JSON.stringify(oldColor)) {
-    //                 if (!spanAbove)
-    //                     stack.push({ x: x2, y: y - 1 });
-    //                 spanAbove = !spanAbove;
-    //             }
-    //             if (y < canvas.height - 1 && spanBelow !== JSON.stringify(ctx.getImageData(x2, y + 1, 1, 1).data) === JSON.stringify(oldColor)) {
-    //                 if (!spanBelow)
-    //                     stack.push({ x: x2, y: y + 1 });
-    //                 spanBelow = !spanBelow;
-    //             }
-    //         }
-    //     }
-    // }
     });
 });
+
+//UNDER CONSTRUCTION (BUCKET TOOL)
+// function bucket () {
+//     let stack = [];
+//     let oldColor;
+//     if (selectedTool === "bucket") {
+//         oldColor = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data; // get the color of the pixel where the mouse was clicked
+//         stack.push({ x: e.offsetX, y: e.offsetY }); //push the coordinates of the clicked pixel to the stack
+//         while (stack.length) { //while loop to keep filling until the stack is empty
+//             let p = stack.pop();
+//             let x1 = p.x, y = p.y;
+//             //use a while loop to keep filling until the stack is empty
+//             //check the pixels to the left and right and if they have the same color as the old color
+//             //if they are the same color as the old color, change them to the selected color
+//             //check the pixels above and below the current pixel and add them to the stack
+    
+//             while (x1 > 0 && JSON.stringify(ctx.getImageData(x1 - 1, y, 1, 1).data) === JSON.stringify(oldColor)) 
+//                 x1--;
+    
+//             let spanAbove = false, spanBelow = false;
+    
+//             for (let x2 = x1 + 1; x2 < canvas.width && JSON.stringify(ctx.getImageData(x2, y, 1, 1).data) === JSON.stringify(oldColor); ++x2) {
+//                 ctx.fillStyle = selectedColor;
+//                 ctx.fillRect(x2, y, 1, 1);
+    
+//                 if (y > 0 && spanAbove !== JSON.stringify(ctx.getImageData(x2, y - 1, 1, 1).data) === JSON.stringify(oldColor)) {
+//                     if (!spanAbove)
+//                         stack.push({ x: x2, y: y - 1 });
+//                     spanAbove = !spanAbove;
+//                 }
+//                 if (y < canvas.height - 1 && spanBelow !== JSON.stringify(ctx.getImageData(x2, y + 1, 1, 1).data) === JSON.stringify(oldColor)) {
+//                     if (!spanBelow)
+//                         stack.push({ x: x2, y: y + 1 });
+//                     spanBelow = !spanBelow;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 // Trigger click event on the brush tool after setting up the event listeners
 const brushTool = document.getElementById('brush');
@@ -205,8 +210,10 @@ brushTool.click();
 brushTool.classList.add('rainbow');
 
 
-//PROMPT GENERATION ON LOAD
 
+
+
+//PROMPT GENERATION ON LOAD
 $(document).ready(function(){
     if (window.location.pathname === "/homepage.html") {
         generatePromptNUMBER();
