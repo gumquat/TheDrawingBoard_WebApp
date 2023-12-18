@@ -57,12 +57,12 @@
           </div>
           <!--BRUSH AND ERASER-->
           <div class="row options">
-            <div class="col">
+            <div class="col-6 g-light border">
               <div class="option active tool" id="brush">
                 <img src="GUI Assets/Brush_icon.png">
               </div>
             </div>
-            <div class="col">
+            <div class="col-6 bg-light border">
               <div class="option tool" id="eraser">
                 <img src="GUI Assets/Eraser_icon.png">
               </div>
@@ -71,18 +71,23 @@
                 <img src="GUI Assets/Bucket_icon.png">
               </li> -->
               <div class="option">
-                <input type="range" id="size-slider" min="1" max="30" value="5">
+                <input type="range" id="size-slider" min="1" max="30" value="5a">
               </div>
           </div>
           <!--COLOR PICKER-->
-          <div class="row colors">
-            <ul class="options">
-              <li class="option selected"></li>
-              <li class="option">
-                <input type="color" id="color-picker" value="#4A98F7">
-              </li>
-            </ul>
-          </div>
+              <div class="colors layers">
+                  <div class="top">
+                    <div class="options">
+                      <div class="selected"></div>
+                      <div class="option" id="palette">
+                          <input type="color" id="color-picker" value="#4A98F7">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bottom bg-light border p-2">
+                    <img src="GUI Assets/Palette_icon.png">
+                  </div>
+              </div>
           <!--CLEAR AND SAVE-->
           <div class="row buttons">
             <button class="clear-canvas">Clear</button>
