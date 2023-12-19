@@ -247,3 +247,14 @@ section{
   position: absolute;
   z-index: 0;
 }
+
+/* Custom style for carousel control arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%); /* Invert the color to make it darker */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    color: #000; /* Set the desired color for the arrows */
+}

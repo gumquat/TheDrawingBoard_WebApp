@@ -213,6 +213,7 @@ function generatePromptAjax(){
 }
 
 
+
 //UNDER CONSTRUCTION (BUCKET TOOL)
 // function bucket () {
 //     let stack = [];
