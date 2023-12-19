@@ -6,6 +6,7 @@ colorBtns = document.querySelectorAll(".colors .option"),
 colorPicker = document.querySelector("#color-picker"),
 clearCanvas = document.querySelector(".clear-canvas"),
 saveImg = document.querySelector(".save-img"),
+generatePrompt = document.querySelector(".generate-prompt")
 ctx = canvas.getContext("2d");
 toolButtons = document.querySelectorAll('.option.tool');
 
@@ -31,6 +32,7 @@ window.addEventListener("load", () => {
     setCanvasBackground();
 });
 
+//SHAPE TOOLS
 const drawRect = (e) => {
     // if fillColor isn't checked draw a rect with border else draw rect with background
     if(!fillColor.checked) {
@@ -86,11 +88,8 @@ const drawing = (e) => {
     } else {
         drawTriangle(e);
     }
+    // put bucket tool here
 }
-
-canvas.addEventListener("mouseleave", () => {
-    isDrawing = false;
-});
 
 toolBtns.forEach(btn => {
     btn.addEventListener("click", () => { // adding click event to all tool option
@@ -104,17 +103,17 @@ toolBtns.forEach(btn => {
 sizeSlider.addEventListener("change", () => brushWidth = sizeSlider.value); // passing slider value as brushSize
 
 colorBtns.forEach(btn => {
-    btn.addEventListener("click", () => { // adding click event to all color button
+    btn.addEventListener("click", () => { // adding click event to all the color buttons
         // removing selected class from the previous option and adding on current clicked option
         document.querySelector(".options .selected").classList.remove("selected");
         btn.classList.add("selected");
-        // passing selected button background color as selectedColor value
+        // passing selected btn background color as selectedColor value
         selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
     });
 });
 
 colorPicker.addEventListener("change", () => {
-    // passing picked color value from color picker to last color button background
+    // passing picked color value from color picker to last color btn background
     colorPicker.parentElement.style.background = colorPicker.value;
     colorPicker.parentElement.click();
 });
@@ -129,6 +128,11 @@ saveImg.addEventListener("click", () => {
     link.download = `${Date.now()}.jpg`; // passing current date as link download value
     link.href = canvas.toDataURL(); // passing canvasData as link href value
     link.click(); // clicking link to download image
+});
+
+//generate random word inside a pop-up
+generatePrompt.addEventListener("click", () => {
+    generatePromptFetch();
 });
 
 canvas.addEventListener("mousedown", startDraw);
@@ -155,8 +159,8 @@ toolButtons.forEach(toolButton => {
             button.classList.remove('active');
         });
 
+        //RAINBOW EFFECT IMPLEMENTATION
         toolButton.classList.add('active');
-
         if ((toolId === 'brush' || toolId === 'eraser') && toolButton.classList.contains('active')) {
             toolButton.classList.add('rainbow');
         } else {
@@ -172,3 +176,79 @@ brushTool.click();
 // Add the 'rainbow' class to the brush tool
 brushTool.classList.add('rainbow');
 
+
+//PROMPT GENERATION ON LOAD
+$(document).ready(function(){
+    if (window.location.pathname === "/index.html") {
+        //NAME OF FUNCTION HERE();
+    }
+});
+
+//FETCH VERSION
+function generatePromptFetch(){
+    fetch('https://random-word-api.herokuapp.com/word?number=10')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data[0] + ' ' + data[1]); 
+        let dataDisplay = data[0] + ' ' + data[1];
+        alert(dataDisplay); // display the data in a pop-up
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+//AJAX VERSION
+function generatePromptAjax(){
+    let number = Math.floor(Math.random() * 3) + 1;
+    $.ajax({
+        method: 'GET',
+        url: 'https://random-word-api.herokuapp.com/word?number=' + number,
+        contentType: 'application/json',
+        success: function(result) {
+            console.log(result);
+        },
+        error: function ajaxError(jqXHR) {
+            console.error('Error: ', jqXHR.responseText);
+        }
+    });
+}
+
+
+
+//UNDER CONSTRUCTION (BUCKET TOOL)
+// function bucket () {
+//     let stack = [];
+//     let oldColor;
+//     if (selectedTool === "bucket") {
+//         oldColor = ctx.getImageData(e.offsetX, e.offsetY, 1, 1).data; // get the color of the pixel where the mouse was clicked
+//         stack.push({ x: e.offsetX, y: e.offsetY }); //push the coordinates of the clicked pixel to the stack
+//         while (stack.length) { //while loop to keep filling until the stack is empty
+//             let p = stack.pop();
+//             let x1 = p.x, y = p.y;
+//             //use a while loop to keep filling until the stack is empty
+//             //check the pixels to the left and right and if they have the same color as the old color
+//             //if they are the same color as the old color, change them to the selected color
+//             //check the pixels above and below the current pixel and add them to the stack
+    
+//             while (x1 > 0 && JSON.stringify(ctx.getImageData(x1 - 1, y, 1, 1).data) === JSON.stringify(oldColor)) 
+//                 x1--;
+    
+//             let spanAbove = false, spanBelow = false;
+    
+//             for (let x2 = x1 + 1; x2 < canvas.width && JSON.stringify(ctx.getImageData(x2, y, 1, 1).data) === JSON.stringify(oldColor); ++x2) {
+//                 ctx.fillStyle = selectedColor;
+//                 ctx.fillRect(x2, y, 1, 1);
+    
+//                 if (y > 0 && spanAbove !== JSON.stringify(ctx.getImageData(x2, y - 1, 1, 1).data) === JSON.stringify(oldColor)) {
+//                     if (!spanAbove)
+//                         stack.push({ x: x2, y: y - 1 });
+//                     spanAbove = !spanAbove;
+//                 }
+//                 if (y < canvas.height - 1 && spanBelow !== JSON.stringify(ctx.getImageData(x2, y + 1, 1, 1).data) === JSON.stringify(oldColor)) {
+//                     if (!spanBelow)
+//                         stack.push({ x: x2, y: y + 1 });
+//                     spanBelow = !spanBelow;
+//                 }
+//             }
+//         }
+//     }
+// }
