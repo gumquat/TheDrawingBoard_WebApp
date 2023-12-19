@@ -151,8 +151,9 @@ section{
   border-color: #FFF;
 }
 .option #color-picker{
-  opacity: 0;
   cursor: pointer;
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
 }
 .buttons button {
   width: 100%;
