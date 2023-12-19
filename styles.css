@@ -150,39 +150,9 @@ section{
 .colors .option:first-child.selected::before{
   border-color: #FFF;
 }
-.colors .option {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.colors .option #color-picker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.option #color-picker{
   opacity: 0;
   cursor: pointer;
-  pointer-events: none;
-}
-
-.colors .option.selected::before {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  height: 12px;
-  width: 12px;
-  background: inherit;
-  border-radius: inherit;
-  border: 2px solid #fff;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.colors .option:first-child.selected::before {
-  border-color: #FFF;
 }
 .buttons button {
   width: 100%;
