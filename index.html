@@ -135,30 +135,53 @@
 
   <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
 
-  <script class="music-player">
-    // Make this load separately and in a new location
-    const Webamp = window.Webamp;
-    new Webamp({
-      initialTracks: [{
-          metaData: {
-            artist: "Britney Spears",
-            title: "Gimme More"
-          },
-          url: "assets/GimmeMore.mp3",
-          duration: 223
+<script class="music-player">
+  // Make this load separately and in a new location
+  const Webamp = window.Webamp;
+  new Webamp({
+    initialTracks: [{
+        metaData: {
+          artist: "Britney Spears",
+          title: "Gimme More"
         },
-        {
-          metaData: {
-            artist: "Coldplay",
-            title: "Viva la Vida"
-          },
-          url: "assets/Viva La Vida.mp3",
-          duration: 223
-        }
-      ],
-    }).renderWhenReady(document.getElementById('app'));
-
-  </script>
+        url: "assets/GimmeMore.mp3",
+        duration: 223
+      },
+      {
+        metaData: {
+          artist: "Coldplay",
+          title: "Viva la Vida"
+        },
+        url: "assets/Viva La Vida.mp3",
+        duration: 223
+      },
+      {
+        metaData: {
+          artist: "Natasha Bedingfield",
+          title: "Unwritten"
+        },
+        url: "assets/Unwritten.mp3",
+        duration: 180
+      },
+      {
+        metaData: {
+          artist: "The White Stripes",
+          title: "7 Nation Army"
+        },
+        url: "assets/7nationarmy.mp3",
+        duration: 200
+      },
+      {
+        metaData: {
+          artist: "Aly & AJ",
+          title: "Potential Breakup Song"
+        },
+        url: "assets/PotentialBreakupSong.mp3",
+        duration: 240
+      }
+    ],
+  }).renderWhenReady(document.getElementById('app'));
+</script>
 </body>
 
 </html>

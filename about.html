@@ -75,10 +75,12 @@
 </body>
   <!-- Winamp and Clippy script -->
   <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
-  <script class="music-player">
-    const Webamp = window.Webamp;
-    new Webamp({
-      initialTracks: [{
+
+<script class="music-player">
+  // Make this load separately and in a new location
+  const Webamp = window.Webamp;
+  new Webamp({
+    initialTracks: [{
         metaData: {
           artist: "Britney Spears",
           title: "Gimme More"
@@ -93,12 +95,32 @@
         },
         url: "assets/Viva La Vida.mp3",
         duration: 223
-      }],
-    }).renderWhenReady(document.getElementById('app'));
-
-    clippy.load('Clippy', function (agent) {
-      agent.show();
-      agent.speak('Rawr!');
-    });
-  </script>
+      },
+      {
+        metaData: {
+          artist: "Natasha Bedingfield",
+          title: "Unwritten"
+        },
+        url: "assets/Unwritten.mp3",
+        duration: 180
+      },
+      {
+        metaData: {
+          artist: "The White Stripes",
+          title: "7 Nation Army"
+        },
+        url: "assets/7nationarmy.mp3",
+        duration: 200
+      },
+      {
+        metaData: {
+          artist: "Aly & AJ",
+          title: "Potential Breakup Song"
+        },
+        url: "assets/PotentialBreakupSong.mp3",
+        duration: 240
+      }
+    ],
+  }).renderWhenReady(document.getElementById('app'));
+</script>
 </html>
