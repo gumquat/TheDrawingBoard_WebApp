@@ -27,6 +27,7 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active" data-artist-name="Dillon Gage" data-artist-prompt="Candy Babies">
@@ -37,6 +38,9 @@
         </div>
         <div class="carousel-item" data-artist-name="Evan Newman-Chock" data-artist-prompt="Folded Happiness">
             <img src="assets/carousel3.png" class="d-block w-100" alt="Burrito">
+        </div>
+        <div class="carousel-item" data-artist-name="Evan Newman-Chock" data-artist-prompt="Gentle Evening">
+            <img src="assets/carousel4.png" class="d-block w-100" alt="Car">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -67,6 +71,29 @@
 <script> 
 $(function(){
     $("#includFooter").load("HTML_Elements/footer.html");
+});
+</script>
+<script>
+$(document).ready(function(){
+    // Function to update artist name and prompt
+    function updateArtistInfo() {
+        var currentSlide = $('#carouselExampleIndicators .carousel-item.active');
+        if (!currentSlide.length) {
+            return; // No active slide found
+        }
+        
+        var artistName = currentSlide.data('artist-name');
+        var artistPrompt = currentSlide.data('artist-prompt');
+
+        $('#artistName').text(artistName);
+        $('#artistPrompt').text(artistPrompt);
+    }
+
+    // Attach the event handler to the carousel
+    $('#carouselExampleIndicators').on('slid.bs.carousel', updateArtistInfo);
+
+    // Trigger the event manually when the document is ready
+    updateArtistInfo();
 });
 </script>
 <!-- An easy call for the navbar content -->
