@@ -1,150 +1,162 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>The Drawing Board</title>
-    <link rel="icon" type="image/png" href="GUI Assets/Logo2.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--BOOTSTRAP INCLUDES-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
-    ></script>
-    <!-- STYLES -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- SCRIPT -->
-    <script src="TESTscript.js" defer></script>
-  </head>
-  <!-- BODY SECTION BEGINS-->
-  <body>
 
-  
+<head>
+  <meta charset="utf-8">
+  <title>The Drawing Board</title>
+  <link rel="icon" type="image/png" href="GUI Assets/Logo2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- BOOTSTRAP INCLUDES -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- STYLES -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- SCRIPT -->
+  <script src="TESTscript.js" defer></script>
+</head>
 
+<body>
   <div class="container">
     <div class="col">
       <div class="row">
-        <!-- an easy call for the header content -->
-          <div class="borders" id="includeNavbar"></div>
-            <!-- Webamp will attempt to center itself within this div -->
-          </div>
-          <!-- <div id="includeCanvas"></div> TESTING A CALL FOR THE CANVAS SECTION-->
-          <div class="container"> <!-- THE CANVAS SECTION -->
-            <section class="tools-board borders">
-              <div class="row">
-                <ul class="options">
-                  <li class="option tool" id="rectangle">
-                    <img src="icons/rectangle.svg" alt="">
-                  </li>
-                  <li class="option tool" id="circle">
-                    <img src="icons/circle.svg" alt="">
-                  </li>
-                  <li class="option tool" id="triangle">
-                    <img src="icons/triangle.svg" alt="">
-                  </li>
-                  <li class="option">
-                    <input type="checkbox" id="fill-color">
-                  </li>
-                </ul>
-              </div>
-              <div class="row">
-                <ul class="options">
-                  <!-- <li class="option active tool" id="bucket">
-                    <img src="GUI Assets/Bucket_icon.png" alt="">
-                  </li> -->
-                  <li class="option active tool" id="brush">
-                    <img src="GUI Assets/Brush_icon.png" alt="">
-                  </li>
-                  <li class="option tool" id="eraser">
-                    <img src="GUI Assets/Eraser_icon.png">
-                  </li>
-                  <li class="option">
-                    <input type="range" id="size-slider" min="1" max="30" value="5">
-                  </li>
-                </ul>
-              </div>
-              <div class="row colors">
-                <label class="title">Colors</label>
-                <ul class="options">
-                  <li class="option"></li>
-                  <li class="option selected"></li>
-                  <li class="option"></li>
-                  <li class="option"></li>
-                  <li class="option">
-                    <input type="color" id="color-picker" value="#4A98F7">
-                  </li>
-                </ul>
-              </div>
-              <div class="row buttons">
-                <button class="clear-canvas">Clear</button>
-                <button class="save-img">Save</button>
-              </div>
-            </section>
-            <!--call for the drawing board-->
-            <section class="drawing-board borders">
-              <canvas></canvas>
-            </section>
-          </div>
-            <!-- FOOTER SECTION -->
-            <!--call for the footer content-->
-          <div class="borders" id="includFooter"></div>
+        <!-- An easy call for the header content -->
+        <div class="borders" id="includeNavbar"></div>
       </div>
 
-      <!-- call for the WinAMP -->
-      <div id="app" style="min-height: 400px">
-  </body>
+      <!--PROMPT SECTION-->
+      <div class="promptSection"></div>
 
-      <!-- SCRIPTS SECTION BELOW-->
-    <!--an easy call for the footer content-->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
-    <script> 
-    $(function(){
+      <!-- The Canvas Section -->
+      <div class="container">
+        <!--SHAPE TOOLS -->
+        <section class="tools-board borders">
+          <div class="row options">
+                <div class="col">
+                    <div class="option tool bg-light border" id="rectangle">
+                      <img src="GUI Assets/Square_icon.png">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="option tool bg-light border" id="circle">
+                      <img src="GUI Assets/Circle.png">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="option tool bg-light border" id="triangle">
+                      <img src="GUI Assets/Triangle_icon.png">
+                    </div>
+                </div>
+              <div class="option align-items-center bg-light border mt-3">
+                <input type="checkbox" id="fill-color">
+                <img class="p-4" src="GUI Assets/Bucket_icon.png">
+              </div>
+            </ul>
+          </div>
+          <!--BRUSH AND ERASER-->
+          <div class="row options">
+            <div class="col-6 g-light border">
+              <div class="option active tool" id="brush">
+                <img src="GUI Assets/Brush_icon.png">
+              </div>
+            </div>
+            <div class="col-6 bg-light border">
+              <div class="option tool" id="eraser">
+                <img src="GUI Assets/Eraser_icon.png">
+              </div>
+            </div>
+              <!-- <li class="option tool" id="bucket">
+                <img src="GUI Assets/Bucket_icon.png">
+              </li> -->
+              <div class="option">
+                <input type="range" id="size-slider" min="1" max="30" value="5a">
+              </div>
+          </div>
+          <!--COLOR PICKER-->
+              <div class="colors layers">
+                  <div class="top">
+                    <div class="options">
+                      <div class="selected"></div>
+                      <div class="option" id="palette">
+                          <input type="color" id="color-picker" value="#4A98F7">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bottom bg-light border p-2">
+                    <img src="GUI Assets/Palette_icon.png">
+                  </div>
+              </div>
+          <!--CLEAR AND SAVE-->
+          <div class="row buttons">
+            <button class="clear-canvas">Clear</button>
+            <button class="save-img">Save</button>
+            <button class="generate-prompt">Prompt</button>
+          </div>
+        </section>
+        <!-- Call for the drawing board -->
+        <section class="drawing-board borders">
+          <canvas></canvas>
+        </section>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="borders" id="includFooter"></div>
+    </div>
+  </div>
+
+  <!-- Scripts Section Below -->
+  <!-- An easy call for the footer content -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(function () {
       $("#includFooter").load("HTML_Elements/footer.html");
     });
-    </script>
+  </script>
 
-    <!--an easy call for the navbar content-->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
-    <script> 
-    $(function(){
-      $("#includeNavbar").load("HTML_Elements/navbar.html"); 
+  <!-- An easy call for the navbar content -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(function () {
+      $("#includeNavbar").load("HTML_Elements/navbar.html");
     });
-    </script>
+  </script>
 
-    <!--an easy call for the canvas content TESTING not working rn-->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
-    <script> 
-    $(function(){
+  <!-- An easy call for the canvas content TESTING not working rn -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(function () {
       $("#includeCanvas").load("HTML_Elements/canvas.html");
     });
-    </script>
+  </script>
 
-<script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+  <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
 
-  <script class="music-player"> //make this load seperately and in a new location
+  <script class="music-player">
+    // Make this load separately and in a new location
     const Webamp = window.Webamp;
     new Webamp({
       initialTracks: [{
-      metaData: {
-        artist: "Britney Spears",
-        title: "Gimme More"
-      },
-        url: "assets/GimmeMore.mp3",
-        duration: 223
-      },
-      {
-      metaData: {
-        artist: "Coldplay",
-        title: "Viva la Vida"
-      },
-        url: "assets/Viva La Vida.mp3",
-        duration: 223
-      }],
+          metaData: {
+            artist: "Britney Spears",
+            title: "Gimme More"
+          },
+          url: "assets/GimmeMore.mp3",
+          duration: 223
+        },
+        {
+          metaData: {
+            artist: "Coldplay",
+            title: "Viva la Vida"
+          },
+          url: "assets/Viva La Vida.mp3",
+          duration: 223
+        }
+      ],
     }).renderWhenReady(document.getElementById('app'));
 
-    clippy.load('Clippy', function(agent) {
-        agent.show();
-        agent.speak('Rawr!');
-    });
   </script>
+</body>
 
 </html>
